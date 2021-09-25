@@ -2,7 +2,7 @@
 ## sim - trade - backtest
 ##### Create Equity Market Trading Portfolio Models
 ##### Quantitative algorithmic equities portfolio modeling r&d, management and deployment, using node.js
-##### Develop your model, then simulate a trade history and backtest that simulation for performance analysis (generating .csv's). 
+##### Develop your model, then simulate a trade history and backtest that simulation for performance analysis 
 ##### Deploy your model to trade in your Alpaca brokerage account
 ##### Automated trading schedules can be managed through Windows Task Scheduler
 # 

@@ -10,5 +10,5 @@
 ### Running sim will create a ./Output/MyAlgo/MyAlgo_sim.csv
 ### Running backtest will create a ./Output/MyAlgo/MyAlgo_sim.csv
 ##### Specifics of model creation is all Algo Developers need to concern themselves with
-##### With this tool you can simulate a model, backtest that simulation for analysis (generating .csv's), and trade that model in Alpaca brokerage
+##### With this tool you can simulate a model, backtest that simulation for analysis (generating .csv's), and trade that model in you Alpaca brokerage account
 ##### Trading can be scheduled by running nodel commandline in windows task scheduler

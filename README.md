@@ -19,5 +19,5 @@
 ### For Research and Development
 ###### (A backtest depends on a preliminary run of sim first)
 ##### Running sim will create a ./Output/MyAlgo/MyAlgo_sim.csv
-##### Running backtest will create a ./Output/MyAlgo/MyAlgo_sim.csv
+##### Running backtest will read from ./Output/MyAlgo/MyAlgo_sim.csv to create a ./Output/MyAlgo/MyAlgo_sim.csv
 

@@ -2,7 +2,8 @@
 Output/*
 node_modules/*
 Library/Secrets
-Library/Secrets/*
+Library/Secrets/*Azure.js
+Library/Secrets/*AlpacaCreds.js
 Library/.DS_Store*
 node-xmlhttprequest*
 ! Library/Models/

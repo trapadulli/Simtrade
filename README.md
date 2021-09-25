@@ -10,9 +10,10 @@
 ### Create
 ##### MyAlgo.js file in ./Library/Models
 ### Run
+##### your_directory/Simtrade/> node process.js sim 0 MyAlgo
+##### your_directory/Simtrade/> node process.js backtest 300 MyAlgo
 ##### your_directory/Simtrade/> node process.js trade 0 MyAlgo
-###### (This will trade the MyAlgo model in alpaca if you have secrets and model
-###### Azure SAS and Alpaca Key are required in ./Library/Secrets
+###### (Azure SAS and Alpaca Key are required in ./Library/Secrets
 ###### Contact me for necessary config settings and how-to conform to Simtrade necessary code standard)
 #
 ### For Research and Development

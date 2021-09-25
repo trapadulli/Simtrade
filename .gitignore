@@ -1,12 +1,10 @@
 # exclude everything
 Output/*
 node_modules/*
-Library/Secrets
 Library/Secrets/*Azure.js
 Library/Secrets/*AlpacaCreds.js
 Library/.DS_Store*
 node-xmlhttprequest*
-!Library/Models/
 Library/Models/*
 !Library/Models/*MyAlgo.js
 # ignore stupid mac file

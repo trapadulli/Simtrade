@@ -1,6 +1,7 @@
 # Simtrade
 ## sim - trade - backtest
-#### simulate, backtest and trade a quantitative algorithmic equities portfolio model from commandline by creating a MyAlgo.js file in ./Library/Models
+#### This tool can simulate, backtest and trade a quantitative algorithmic equities portfolio model
+#### from commandline by creating a MyAlgo.js file in ./Library/Models
 ### Ex. ./Simtrade/> node process.js trade 0 MyAlgo
 ##### This will trade the MyAlgo model in alpaca if you have secrets and model
 ##### Azure SAS and Alpaca Key are required in ./Library/Secrets

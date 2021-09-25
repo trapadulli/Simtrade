@@ -15,7 +15,7 @@
 ###### Contact me for necessary config settings)
 #
 ### For Research and Development
-###### (A backtest relies on a preliminary run of sim first)
+###### (A backtest depends on a preliminary run of sim first)
 ##### Running sim will create a ./Output/MyAlgo/MyAlgo_sim.csv
 ##### Running backtest will create a ./Output/MyAlgo/MyAlgo_sim.csv
 

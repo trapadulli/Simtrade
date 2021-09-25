@@ -1,7 +1,7 @@
 # Simtrade
 ## sim - trade - backtest
 ##### Specifics of model creation is all Algo Developers need to concern themselves with
-##### Quantitative algorithmic equities portfolio model r&d, management and deployment, using node.js
+##### Quantitative algorithmic equities portfolio modeling r&d, management and deployment, using node.js
 ##### With this tool you can simulate a model, backtest that simulation for analysis (generating .csv's), and trade that model in your Alpaca brokerage account
 ##### Automated trading can be scheduled by running you models commandline with Windows Task Scheduler
 # 

@@ -2,8 +2,9 @@
 ## sim - trade - backtest
 #### Run a function from commandline by creating a MyAlgo.js file in ./Library/Models
 ### Ex. ./Simtrade/> node process.js trade 0 MyAlgo
-##### This will trade the MyAlgo model in alpaca if your alpaca secrets are in the ./Library/Secrets folder and you have an Azure SAS secret in ./Library/Secrets 
-##### (Contact me for necessary file config and token for Azure Tablestorage data connection)
+##### This will trade the MyAlgo model in alpaca if you have secrets and model
+##### Azure SAS and Alpaca Key are required in ./Library/Secrets
+##### (Contact me for necessary config settings)
 ### A backtest relies on a preliminary run of sim
 #### Running sim will create a ./Output/MyAlgo/MyAlgo_sim.csv
 #### Running backtest will create a ./Output/MyAlgo/MyAlgo_sim.csv

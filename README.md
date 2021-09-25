@@ -14,7 +14,7 @@
 ##### your_directory/Simtrade/> node process.js backtest 300 MyAlgo
 ##### your_directory/Simtrade/> node process.js trade 0 MyAlgo
 ###### (Azure SAS and Alpaca Key are required in ./Library/Secrets
-###### Contact me for necessary config settings and how-to conform to Simtrade necessary code standard)
+###### Contact me for necessary config settings and 'how-to conform to Simtrade' necessary code standard)
 #
 ### For Research and Development
 ###### (A backtest depends on a preliminary run of sim first)

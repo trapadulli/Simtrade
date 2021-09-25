@@ -5,7 +5,7 @@
 ##### With this tool you can simulate a model, backtest that simulation for analysis (generating .csv's), and trade that model in your Alpaca brokerage account
 ##### Automated trading can be scheduled by running node commandline in Windows Task Scheduler
 # 
-## EXAMPLE
+## EXAMPLES
 ### Create
 ##### MyAlgo.js file in ./Library/Models
 ### Run

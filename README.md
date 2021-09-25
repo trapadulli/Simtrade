@@ -5,9 +5,10 @@
 ##### With this tool you can simulate a model, backtest that simulation for analysis (generating .csv's), and trade that model in your Alpaca brokerage account
 ##### Automated trading can be scheduled by running your models commandline with Windows Task Scheduler
 # 
-### Create
+## EXAMPLE
+#### Create
 ##### MyAlgo.js file in ./Library/Models
-### Run
+#### Run
 ##### your_directory/Simtrade/> node process.js trade 0 MyAlgo
 ###### (This will trade the MyAlgo model in alpaca if you have secrets and model
 ###### Azure SAS and Alpaca Key are required in ./Library/Secrets

@@ -3,7 +3,7 @@
 ##### Specifics of model creation is all Algo Developers need to concern themselves with
 ##### Quantitative algorithmic equities portfolio model r&d, management and deployment, using node.js
 ##### With this tool you can simulate a model, backtest that simulation for analysis (generating .csv's), and trade that model in you Alpaca brokerage account
-##### Trading can be scheduled by running you models commandline with Windows Task Scheduler
+##### Automated trading can be scheduled by running you models commandline with Windows Task Scheduler
 #
 #### Example: create a MyAlgo.js file in ./Library/Models
 #### run node.js cmd from - your_directory/Simtrade/> node process.js trade 0 MyAlgo

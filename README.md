@@ -4,8 +4,7 @@
 ##### Quantitative algorithmic equities portfolio model r&d, management and deployment, using node.js
 ##### With this tool you can simulate a model, backtest that simulation for analysis (generating .csv's), and trade that model in your Alpaca brokerage account
 ##### Automated trading can be scheduled by running you models commandline with Windows Task Scheduler
-#
-##### Example: 
+# 
 ### Create
 ##### MyAlgo.js file in ./Library/Models
 ### Run
@@ -14,7 +13,7 @@
 ##### Azure SAS and Alpaca Key are required in ./Library/Secrets
 ##### (Contact me for necessary config settings)
 #
-##### A backtest relies on a preliminary run of sim
+##### (A backtest relies on a preliminary run of sim)
 ##### Running sim will create a ./Output/MyAlgo/MyAlgo_sim.csv
 ##### Running backtest will create a ./Output/MyAlgo/MyAlgo_sim.csv
 

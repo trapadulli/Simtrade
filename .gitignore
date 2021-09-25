@@ -11,3 +11,5 @@ Library/Models/*
 !Library/Models/*MyAlgo.js
 # ignore stupid mac file
 **/.DS_Store
+Library/Secrets/AlpacaCreds.js
+Library/Secrets/Azure.js

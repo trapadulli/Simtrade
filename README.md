@@ -8,7 +8,7 @@
 # 
 ## EXAMPLES
 ### Create
-##### MyAlgo.js file in ./Library/Models
+##### MyAlgo.js in ./Library/Models
 ### Run
 ##### your_directory/Simtrade/> node process.js sim 0 MyAlgo
 ##### your_directory/Simtrade/> node process.js backtest 300 MyAlgo

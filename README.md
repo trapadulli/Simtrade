@@ -1,7 +1,6 @@
 # Simtrade
 ## sim - trade - backtest
-### run a function from commandline 
-### by having a model.js file in the ./Library/Models to run
+### Run a function from commandline by having a model.js file in the ./Library/Models to run
 #### with commands from Simtrade/: ex. > node process.js trade 0 MyAlgo
 #### this will trade the MyAlgo model in alpaca if your alpaca secrets are in the ./Library/Secrets folder
 #### and you have an Azure SAS secrets in ./Library/Secrets 

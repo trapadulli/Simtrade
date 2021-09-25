@@ -2,7 +2,6 @@
 Output/*
 node_modules/*
 Library/Secrets/*
-
 Library/.DS_Store*
 node-xmlhttprequest*
 ! Library/Models/

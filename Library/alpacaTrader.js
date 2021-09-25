@@ -77,14 +77,12 @@ function alpacaTrader(positions) {
                 ? (data[i].weight * 0.5) / longSum
                 : (data[i].weight * 0.5) / shortSum;
               weight = weight * cash;
-              if ("CTXS" != data[i].symbol) {
                 Builder.SubmitOrder(
                   data[i].symbol,
                   weight,
                   shares,
                   function () { }
                 );
-              }
             }, 500 * i);
           })(i);
         }

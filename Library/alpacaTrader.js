@@ -45,7 +45,6 @@ function alpacaTrader(positions) {
           orderSymbols.push(x.symbol);
           data.push(x);
         });
-
         portfolio.forEach(function (x) {
           portfolioSymbols.push(x.symbol);
           portfolioSharesDictionary[x.symbol] = x.qty;
@@ -72,7 +71,6 @@ function alpacaTrader(positions) {
               if (portfolioSymbols.includes(data[i].symbol)) {
                 shares = portfolioSharesDictionary[data[i].symbol];
               }
-
               var weight = data[i].weight > 0
                 ? (data[i].weight * 0.5) / longSum
                 : (data[i].weight * 0.5) / shortSum;

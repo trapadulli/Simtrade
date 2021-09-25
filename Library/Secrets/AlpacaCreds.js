@@ -3,17 +3,17 @@ const Alpaca = require('@alpacahq/alpaca-trade-api')
 module.exports = {
       	getCreds: function (){
       		return new Alpaca({
-                     keyId: '',
-                    secretKey:'',
+                     keyId: 'PKNTYOVQBM9Y1IVA9FM1',
+                    secretKey:'yqyUr31ziXFep3n4HrMUaPUqfh8xFKOkhuh4YZwN',
                     paper: true,
                     usePolygon: false
                   });
         },
         KEYID: function (){
-      		return  '';
+      		return  'PKNTYOVQBM9Y1IVA9FM1';
         },
         SECRETKEY: function (){
-      		return  '';
+      		return  'yqyUr31ziXFep3n4HrMUaPUqfh8xFKOkhuh4YZwN';
       	}
        };
 

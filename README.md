@@ -13,6 +13,7 @@
 ##### Azure SAS and Alpaca Key are required in ./Library/Secrets
 ##### (Contact me for necessary config settings)
 #
+### Research and Development
 ##### (A backtest relies on a preliminary run of sim)
 ##### Running sim will create a ./Output/MyAlgo/MyAlgo_sim.csv
 ##### Running backtest will create a ./Output/MyAlgo/MyAlgo_sim.csv

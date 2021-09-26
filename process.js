@@ -12,15 +12,19 @@ const { BacktestRunner } = require("./Core/BacktestRunner");
 const { writecsvRowBacktest } = require("./Core/writecsvRowBacktest");
 const { SimulationBuilder } = require("./Core/SimulationBuilder");
 const { lookback } = require("./Core/lookback");
-const outputDirectory = __dirname + "/Output/"+process.argv[4]+"/"
+const outputDirector = __dirname + "/Output/"
+const testDir = __dirname + "/Output/"+process.argv[4]+"/"
 const modelPath = __dirname + "/Library/Models/"+process.argv[4]+".js"
 var fs = require('fs');
 
 
 if (process.argv[2]&&process.argv[3]&&process.argv[4]) {
-  if ((!fs.existsSync(outputDirectory))&&fs.existsSync(modelPath)){
-    fs.mkdirSync(outputDirectory);
-}
+  if ((!fs.existsSync(outputDirector))&&fs.existsSync(modelPath)){
+    fs.mkdirSync(outputDirector);
+  }
+  if ((!fs.existsSync(testDir))&&fs.existsSync(modelPath)){
+    fs.mkdirSync(testDir);
+  }
   
    if ("trade" == process.argv[2]) {
     
@@ -41,7 +45,7 @@ if (process.argv[2]&&process.argv[3]&&process.argv[4]) {
   }
   else if ("sim" == process.argv[2]) {
     var input = Number(process.argv[3] != undefined ? process.argv[3] : 0);
-    SimulationBuilder( outputDirectory+process.argv[4]+"_sim.csv",
+    SimulationBuilder( testDir+process.argv[4]+"_sim.csv",
       input,
       12000,
       RunAlgo.Model,
@@ -53,8 +57,8 @@ if (process.argv[2]&&process.argv[3]&&process.argv[4]) {
     BacktestRunner(
       input,
       10000,
-      outputDirectory+process.argv[4]+"_backtest.csv",
-      outputDirectory+process.argv[4]+"_sim.csv",
+      testDir+process.argv[4]+"_backtest.csv",
+      testDir+process.argv[4]+"_sim.csv",
       ModelRunner.BacktestResults,
       writecsvRowBacktest
     );

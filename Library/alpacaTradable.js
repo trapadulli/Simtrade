@@ -1,6 +1,7 @@
 "use strict";
+const alpaca = require("./Secrets/AlpacaCreds").getCreds();
 
-function alpacaTradable(alpaca, positions, calback) {
+function alpacaTradable(positions, calback) {
   var weights = {};
   var checklist = [];
   positions.forEach((position) => {

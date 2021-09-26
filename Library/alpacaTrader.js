@@ -72,8 +72,8 @@ function alpacaTrader(positions) {
                 shares = portfolioSharesDictionary[data[i].symbol];
               }
               var weight = data[i].weight > 0
-                ? (data[i].weight * 0.5) / longSum
-                : (data[i].weight * 0.5) / shortSum;
+                ? (data[i].weight) / longSum
+                : (data[i].weight) / shortSum;
               weight = weight * cash;
                 Builder.SubmitOrder(
                   data[i].symbol,

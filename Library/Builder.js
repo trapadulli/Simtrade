@@ -31,8 +31,9 @@ function order(sharesExisting,orderQuantity, orderSide, symbol,sharePrice) {
       symbol: symbol,
       qty: Math.abs(orderQuantity),
       side: orderSide,
-      type: "market",
-      extended_hours: false,
+      type: "limit",
+      extended_hours: true,
+      limit_price: orderSide=="buy"?sharePrice+.01:sharePrice+.01,
       time_in_force: "day",
     };
   }

@@ -5,8 +5,16 @@ const tableService = azure.createTableServiceWithSas(
     AzureSecrets.URL,
     AzureSecrets.SAS
     );
-
-function AzureAccess(){
+const fileService = azure.createFileServiceWithSas(
+        AzureSecrets.URL,
+        AzureSecrets.SAS
+        );
+function AzureTableAccess(){
     return tableService;
 }
-exports.AzureAccess = AzureAccess;
+exports.AzureTableAccess = AzureTableAccess;
+
+function AzureFileAccess(){
+    return fileService;
+}
+exports.AzureFileAccess = AzureFileAccess;

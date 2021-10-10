@@ -7,7 +7,7 @@ function SimulationBuilder(file, indexAdder, incrementer, method, back) {
   var daysback = indexAdder + year;
   console.log("daysback: " + daysback);
   console.log("indexAdder: " + indexAdder);
-  for (var i = 0; i + indexAdder < daysback; i++) {
+  for (var i = 0; i + indexAdder <= daysback; i++) {
     (function (i) {
       setTimeout(
         function () {

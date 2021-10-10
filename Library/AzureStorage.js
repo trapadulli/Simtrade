@@ -1,6 +1,7 @@
 "use strict"
 
 var entities = []
+
 function GetTable(tableName, tableService, query, callback, nextContinuationToken) {
 
 
@@ -50,5 +51,6 @@ module.exports = {
   },
   GetTable: function (tableName, tableService, query, callback) {
     GetTable(tableName, tableService, query, callback, null)
-  }
+  },
+  
 }

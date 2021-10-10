@@ -4,9 +4,9 @@ const KEYID = require("./Secrets/AlpacaCreds").KEYID();
 const SECRETKEY = require("./Secrets/AlpacaCreds").SECRETKEY();
 var azure = require('azure-storage');
 const AzureStorage = require("./AzureStorage")
-const { AzureAccess } = require("../Core/AzureAccess");
+const { AzureTableAccess } = require("../Core/AzureAccess");
 
-const tableService = AzureAccess()
+const tableService = AzureTableAccess()
 function closeAllPositions() {
   paca.closeAllPositions().then((report) => {
     console.log("closed all positions ");

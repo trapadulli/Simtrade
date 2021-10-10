@@ -4,9 +4,9 @@ var azure = require("azure-storage");
 const colors = require("colors/safe");
 const fs = require("fs");
 const { lookbacker } = require("../Core/lookbacker");
-const { AzureAccess } = require("../Core/AzureAccess");
+const { AzureTableAccess } = require("../Core/AzureAccess");
 
-const tableService = AzureAccess()
+const tableService = AzureTableAccess()
 
 module.exports = {
   BacktestResults: function (daysback, file, callback) {

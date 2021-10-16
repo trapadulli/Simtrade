@@ -1,6 +1,6 @@
 "use strict"
 
-const Builder = require("../Library/Builder");
+const Order = require("../Library/Order");
 
 function BacktestRunner(indexAdder, incrementer, path, file, method,writecsvRowBacktest) {
   var returns = 0;
@@ -26,7 +26,7 @@ function BacktestRunner(indexAdder, incrementer, path, file, method,writecsvRowB
           var backDate = new Date(howFar).toJSON().slice(0, 10);
           try {
            
-            Builder.GetCalendar(backDate, function (isTradingDay) {
+            Order.GetCalendar(backDate, function (isTradingDay) {
               if (isTradingDay) {
                 
                 method(backDate, file, function (daily, beta, sectors,longs,shorts) {
@@ -47,6 +47,7 @@ function BacktestRunner(indexAdder, incrementer, path, file, method,writecsvRowB
                     ).toFixed(4)
                   );
                   returns += growth;
+                 
                   if (growth < 0) {
                     pain += growth;
                   }

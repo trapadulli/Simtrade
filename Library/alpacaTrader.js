@@ -1,5 +1,5 @@
 "use strict";
-const Builder = require("./Builder");
+const Order = require("./Order");
 const alpaca = require("./Secrets/AlpacaCreds").getCreds();
 
 
@@ -54,7 +54,7 @@ function alpacaTrader(positions) {
           (function (i) {
             setTimeout(function () {
               if (!orderSymbols.includes(portfolioSymbols[i])) {
-                Builder.SubmitOrder(
+                Order.SubmitOrder(
                   portfolioSymbols[i],
                   0,
                   portfolioSharesDictionary[portfolioSymbols[i]],
@@ -75,7 +75,7 @@ function alpacaTrader(positions) {
                 ? (data[i].weight) / longSum
                 : (data[i].weight) / shortSum;
               weight = weight * cash;
-                Builder.SubmitOrder(
+                Order.SubmitOrder(
                   data[i].symbol,
                   weight,
                   shares,

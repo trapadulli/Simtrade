@@ -2,9 +2,9 @@
 var azure = require('azure-storage');
 const alpaca = require("../Secrets/AlpacaCreds").getCreds();
 const AzureStorage = require("../AzureStorage");
-const { AzureAccess } = require("../../Core/AzureAccess");
+const { AzureTableAccess } = require("../../Core/AzureAccess");
 
-const tableService = AzureAccess()
+const tableService = AzureTableAccess()
 module.exports = {
 run: function (printday, day, file, trade, testortrade) {
 

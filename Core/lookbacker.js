@@ -1,16 +1,16 @@
 /////////////////////////////////////////////////// DEPENDENCIES //////////////////////////////////////////////////////////////
 "use strict";
-const Builder = require("../Library/Builder");
+const Order = require("../Library/Order");
 
 function lookbacker(day, callback) {
   try {
-    Builder.GetCalendar(day, function (isTradingDay) {
+    Order.GetCalendar(day, function (isTradingDay) {
       if (isTradingDay) {
         console.log("tradingDay: " + day);
         var d = new Date(day);
         d.setDate(d.getDate() - 1);
         day = d.toJSON().slice(0, 10);
-        Builder.GetCalendar(day, function (isTradingDay) {
+        Order.GetCalendar(day, function (isTradingDay) {
           if (isTradingDay) {
             console.log("in 1");
             callback(day)
@@ -19,7 +19,7 @@ function lookbacker(day, callback) {
             d = new Date(day);
             d.setDate(d.getDate() - 1);
             day = d.toJSON().slice(0, 10);
-            Builder.GetCalendar(day, function (isTradingDay) {
+            Order.GetCalendar(day, function (isTradingDay) {
               if (isTradingDay) {
                 console.log("in 2");
                 callback(day)
@@ -27,7 +27,7 @@ function lookbacker(day, callback) {
                 d = new Date(day);
                 d.setDate(d.getDate() - 1);
                 day = d.toJSON().slice(0, 10);
-                Builder.GetCalendar(day, function (isTradingDay) {
+                Order.GetCalendar(day, function (isTradingDay) {
                   if (isTradingDay) {
                     console.log("in 3");
                     callback(day)
@@ -35,7 +35,7 @@ function lookbacker(day, callback) {
                     d = new Date(day);
                     d.setDate(d.getDate() - 1);
                     day = d.toJSON().slice(0, 10);
-                    Builder.GetCalendar(day, function (isTradingDay) {
+                    Order.GetCalendar(day, function (isTradingDay) {
                       if (isTradingDay) {
                         console.log("in 4");
                         callback(day)
@@ -43,7 +43,7 @@ function lookbacker(day, callback) {
                         d = new Date(day);
                         d.setDate(d.getDate() - 1);
                         day = d.toJSON().slice(0, 10);
-                        Builder.GetCalendar(day, function (isTradingDay) {
+                        Order.GetCalendar(day, function (isTradingDay) {
                           if (isTradingDay) {
                             console.log("in 5");
                             callback(day)
@@ -51,7 +51,7 @@ function lookbacker(day, callback) {
                             d = new Date(day);
                             d.setDate(d.getDate() - 1);
                             day = d.toJSON().slice(0, 10);
-                            Builder.GetCalendar(day, function (isTradingDay) {
+                            Order.GetCalendar(day, function (isTradingDay) {
                               if (isTradingDay) {
                                 console.log("in 6");
                                 callback(day)

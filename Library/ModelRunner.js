@@ -1,5 +1,5 @@
 var AzureStorage = require("./AzureStorage");
-var Builder = require("./Builder");
+var Order = require("./Order");
 var azure = require("azure-storage");
 const colors = require("colors/safe");
 const fs = require("fs");
@@ -48,7 +48,7 @@ async function BacktestResults(date, file, callback) {
               backtest.shift();
               var buildArray = [];
 
-              Builder.BetaSector_Report(backtest, function (exposure) {
+              Order.BetaSector_Report(backtest, function (exposure) {
                 backtest.forEach(function (x) {
                   var push = x.replace("\r", "").split(",");
                   if (
@@ -90,6 +90,7 @@ async function BacktestResults(date, file, callback) {
                   firstDayData.forEach((element) => {
                     try {
                       if (ea.symbol == Object.values(element.RowKey)[1]) {
+                      
                         var sector = exposure[ea.symbol].sector;
                         var beta = Number(exposure[ea.symbol].beta).toFixed(2);
                         var weight = Number(ea.weight).toFixed(3);

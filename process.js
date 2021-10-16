@@ -7,7 +7,7 @@
 process.env.UV_THREADPOOL_SIZE = 1028;
 var RunAlgo = require("./Library/RunAlgo");
 const ModelRunner = require("./Library/ModelRunner.js");
-const Builder = require("./Library/Builder");
+const Order = require("./Library/Order");
 const { BacktestRunner } = require("./Core/BacktestRunner");
 const { writecsvRowBacktest } = require("./Core/writecsvRowBacktest");
 const { SimulationBuilder } = require("./Core/SimulationBuilder");
@@ -34,7 +34,7 @@ if (process.argv[2]&&process.argv[3]&&process.argv[4]) {
     d.setDate(d.getDate() - input);
     var day = d.toJSON().slice(0, 10);
     var file =   "simulations/_trade";
-    Builder.GetCalendar(day, function (isTradingDay) {
+    Order.GetCalendar(day, function (isTradingDay) {
       if (isTradingDay) {
         lookback(day,file,RunAlgo.Model,true, 1)
         

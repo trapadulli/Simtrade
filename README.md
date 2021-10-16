@@ -17,7 +17,7 @@
 ###### Contact me for necessary config settings and 'how-to conform to Simtrade' necessary coding standard)
 #
 ### For Research and Development
-###### (A backtest depends on a preliminary run of sim first)
+###### (A backtest depends on a preliminary run of sim)
 ##### Running a sim will create a ./Output/MyAlgo/MyAlgo_sim.csv
 ##### Running a backtest will create a ./Output/MyAlgo/MyAlgo_sim.csv
 

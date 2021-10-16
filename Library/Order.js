@@ -23,7 +23,7 @@ function order(sharesExisting,orderQuantity, orderSide, symbol,sharePrice) {
     side: orderSide,
     type: "limit",
     extended_hours: true,
-    limit_price: orderSide=="buy"?sharePrice+.01:sharePrice-.01,
+    limit_price: orderSide=="buy"?sharePrice-.01:sharePrice+.01,
     time_in_force: "day",
   };
   if(sharesExisting != 0){
@@ -33,7 +33,7 @@ function order(sharesExisting,orderQuantity, orderSide, symbol,sharePrice) {
       side: orderSide,
       type: "limit",
       extended_hours: true,
-      limit_price: orderSide=="buy"?sharePrice+.01:sharePrice+.01,
+      limit_price: orderSide=="buy"?sharePrice-.01:sharePrice+.01,
       time_in_force: "day",
     };
   }
@@ -78,10 +78,15 @@ module.exports = {
   CloseAllPositions() {
     closeAllPositions();
   },
+  ReOrder: function(orderObj){
+    paca.createOrder(orderObj).then((order) => {
+      console.log("Order :", order);
+    });
+  },
   SubmitOrder: function (symbol, weight, sharesExisting, callback) {
     var orderSide = "";
-    const barset = paca
-      .getBars("day", symbol, {
+   
+    paca.getBars("day", symbol, {
         limit: 5,
       })
       .then((barset) => {

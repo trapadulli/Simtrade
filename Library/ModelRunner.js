@@ -93,7 +93,7 @@ async function BacktestResults(date, file, callback) {
                       
                         var sector = exposure[ea.symbol].sector;
                         var beta = Number(exposure[ea.symbol].beta).toFixed(2);
-                        var weight = Number(ea.weight).toFixed(3);
+                        var weight = Number(ea.weight);
                         var open = Number(
                           daybackDict[ea.symbol]
                         ).toFixed(3);
@@ -120,11 +120,12 @@ async function BacktestResults(date, file, callback) {
                         } else {
                           space = spaces; //.slice(0,-3)
                         }
-                        if (weight > 0) {
+                        if (weight >= 0) {
                           longs += 1;
                         } else {
                           shorts += 1;
                         }
+                        weight = weight.toFixed(3)
                         var sum = Number(Number(weight) * Number(diff)); //.toFixed(4)
                         var percent = (sum * 100).toFixed(2);
                         console.log(

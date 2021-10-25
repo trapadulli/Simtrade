@@ -78,7 +78,7 @@ function alpacaTrader(positions) {
                 ? (data[i].weight) / longSum
                 : (data[i].weight) / shortSum;
               weight = weight * cash;
-                console.log(
+                Order.SubmitOrder(
                   data[i].symbol,
                   weight,
                   shares,

@@ -1,7 +1,10 @@
 "use strict";
 const Order = require("./Order");
 const alpaca = require("./Secrets/AlpacaCreds").getCreds();
-
+/**
+ * makes calls to alpaca brokerage
+ * @param {*} positions 
+ */
 
 function alpacaTrader(positions) {
   var weights = {};
@@ -36,7 +39,7 @@ function alpacaTrader(positions) {
     });
     alpaca.getPositions().then((portfolio) => {
       alpaca.getAccount().then((account) => {
-        var cash = account.cash;
+        var cash = Number(account.equity);
         var portfolioSymbols = [];
         var portfolioSharesDictionary = {};
         var orderSymbols = [];
@@ -75,7 +78,7 @@ function alpacaTrader(positions) {
                 ? (data[i].weight) / longSum
                 : (data[i].weight) / shortSum;
               weight = weight * cash;
-                Order.SubmitOrder(
+                console.log(
                   data[i].symbol,
                   weight,
                   shares,

@@ -26,13 +26,13 @@ module.exports = {
           
           })
           
-          cot.forEach((item) => {
-            var obj = allProperties(item)
+         
+            var obj = allProperties(cot[cot.length-1])
             for (const [key, value] of Object.entries(obj != undefined ? obj : {})) {
               if("Timestamp"!=key&&"PartitionKey"!=key&&"RowKey"!=key&&".metadata"!=key)
               masterDict[key] = (value);
             }
-          })
+        
   
           sectorSharpe.forEach((item) => {
             var obj = allProperties(item)

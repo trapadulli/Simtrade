@@ -47,7 +47,7 @@ if (process.argv[2]&&process.argv[3]&&process.argv[4]) {
     var input = Number(process.argv[3] != undefined ? process.argv[3] : 0);
     SimulationBuilder( testDir+process.argv[4]+"_sim.csv",
       input,
-      12000,
+      15000,
       RunAlgo.Model,
       1
     );

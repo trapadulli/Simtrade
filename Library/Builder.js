@@ -85,6 +85,7 @@ module.exports = {
 
                           fundamentals.forEach((company) => {
                             var scoreDict = {}
+                            
                             symbolsUnique.push(objectValues(company.RowKey))
                             fundamentalsDict[objectValues(company.RowKey)] = allProperties(company)
                             scoreDict['beniesh'] = beniesh(company)
@@ -92,7 +93,7 @@ module.exports = {
                             scoreDict['piotroskiScore'] = piotroskiScore(company)
                             extras[objectValues(company.RowKey)] = scoreDict
                           })
-
+                         
                           var wjsDict = {}
                           wjs.forEach((company) => {
                             wjsDict[objectValues(company.RowKey)] = allProperties(company)
@@ -128,11 +129,12 @@ module.exports = {
                           symbolsUnique.forEach((company) => {
                             var masterDict = {}
                             if (fundamentalsDict[company] != undefined &&
-                              shortVolumeDict[company] != undefined &&
+                             shortVolumeDict[company] != undefined &&
 
-                              adDict[company] != undefined &&
-                              fiftyDayDict[company] != undefined &&
-                              cciDict[company] != undefined) {
+                             adDict[company] != undefined &&
+                             fiftyDayDict[company] != undefined &&
+                             cciDict[company] != undefined
+                             ) {
                                 for (const [key, value] of Object.entries(polygonCompanyDict[company] != undefined ? polygonCompanyDict[company] : {})) {
                                   if (key == "industry" || key == "sector")
                                   masterDict[key] = (value);
@@ -184,7 +186,7 @@ module.exports = {
                                 if (!isNaN(value))
                                   masterDict[key] = Number(value);
                               }
-
+                                
                               array.push(masterDict);
                             }
 

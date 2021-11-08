@@ -114,10 +114,13 @@ module.exports = {
         if (orderSide == "sell") {
           shares = -1 * shares;
         }
-        data = {
-          shares: shares,
-          symbol: symbol,
-        };
+        // data = {
+        //   shares: shares,
+        //   symbol: symbol,
+        //   price:sharePrice,
+        //   weight:weight
+        // };
+        // console.log(data)
       });
   },
   BetaSector_Report: function (positions, callback) {

@@ -86,11 +86,11 @@ module.exports = {
   SubmitOrder: function (symbol, weight, sharesExisting, callback) {
     var orderSide = "";
    
-    paca.getBars("day", symbol, {
+    paca.getBars("15Min", symbol, {
         limit: 5,
       })
       .then((barset) => {
-        console.log()
+       // console.log(barset)
         var sharePrice = barset[symbol][barset[symbol].length-1].closePrice;
         var volume = barset[symbol][0].volume;
 
@@ -108,19 +108,9 @@ module.exports = {
         ) {
           shares = Math.abs(sharesExisting);
         }
-        //  shares=sharePrice*shares<1000000?shares:Math.round(1000000/sharePrice)
-
+       
         order(sharesExisting,shares, orderSide, symbol,sharePrice);
-        if (orderSide == "sell") {
-          shares = -1 * shares;
-        }
-        // data = {
-        //   shares: shares,
-        //   symbol: symbol,
-        //   price:sharePrice,
-        //   weight:weight
-        // };
-        // console.log(data)
+        
       });
   },
   BetaSector_Report: function (positions, callback) {

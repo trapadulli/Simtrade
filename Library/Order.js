@@ -16,27 +16,28 @@ function closeAllPositions() {
   });
 }
 
-function order(sharesExisting,orderQuantity, orderSide, symbol,sharePrice) {
+function order(orderQuantity, orderSide, symbol,sharePrice) {
+  var diff = Number(process.argv[5]?process.argv[5]:0)
   var orderObj = {
     symbol: symbol,
     qty: Math.abs(orderQuantity),
     side: orderSide,
     type: "limit",
     extended_hours: true,
-    limit_price: orderSide=="buy"?sharePrice-.01:sharePrice+.01,
+    limit_price: orderSide=="buy"?sharePrice+diff:sharePrice-diff,
     time_in_force: "day",
   };
-  if(sharesExisting != 0){
-    var orderObj = {
-      symbol: symbol,
-      qty: Math.abs(orderQuantity),
-      side: orderSide,
-      type: "limit",
-      extended_hours: true,
-      limit_price: orderSide=="buy"?sharePrice-.01:sharePrice+.01,
-      time_in_force: "day",
-    };
-  }
+  // if(sharesExisting != 0){
+  //   var orderObj = {
+  //     symbol: symbol,
+  //     qty: Math.abs(orderQuantity),
+  //     side: orderSide,
+  //     type: "limit",
+  //     extended_hours: true,
+  //     limit_price: orderSide=="buy"?sharePrice+diff:sharePrice-diff,
+  //     time_in_force: "day",
+  //   };
+  //}
   
   paca.createOrder(orderObj).then((order) => {
     console.log("Order :", order);
@@ -102,14 +103,15 @@ module.exports = {
         } else {
           orderSide = "sell";
         }
-        if (
-          (ordersRaw > 0 && sharesExisting < 0) ||
-          (ordersRaw < 0 && sharesExisting > 0)
-        ) {
-          shares = Math.abs(sharesExisting);
-        }
+        // if (
+        //   (ordersRaw > 0 && sharesExisting < 0) ||
+        //   (ordersRaw < 0 && sharesExisting > 0)
+        // ) {
+        //   shares = Math.abs(sharesExisting);
+        // }
        
-        order(sharesExisting,shares, orderSide, symbol,sharePrice);
+        order(//sharesExisting,
+          shares, orderSide, symbol,sharePrice);
         
       });
   },

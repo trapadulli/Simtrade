@@ -11,10 +11,6 @@ function alpacaReplaceOrders() {
        orders.forEach(x=>{reorders.push({
         symbol:x.symbol,
         qty:x.qty,
-        type:x.order_type,
-        side:x.side,
-        time_in_force:x.time_in_force,
-        limit_price:x.side=="sell"? Number(x.limit_price)-.01:Number(x.limit_price)+.01
       })
     })
       
@@ -23,10 +19,7 @@ function alpacaReplaceOrders() {
         for (var i = 0; i < reorders.length; i++) {
           (function (i) {
             setTimeout(function () {
-              console.log(reorders[i])
-                Order.ReOrder(
-                  reorders[i]
-                );
+                Order.SubmitOrder(reorders[i].symbol, 0, -reorders[i].qty, function(){})
             }, 500 * i);
           })(i);
         }

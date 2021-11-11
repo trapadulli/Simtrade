@@ -17,28 +17,40 @@ function closeAllPositions() {
 }
 
 function order(orderQuantity, orderSide, symbol,sharePrice) {
-  var diff = Number(process.argv[5]?process.argv[5]:0)
-  var orderObj = {
-    symbol: symbol,
-    qty: Math.abs(orderQuantity),
-    side: orderSide,
-    type: "limit",
-    extended_hours: true,
-    limit_price: orderSide=="buy"?sharePrice+diff:sharePrice-diff,
-    time_in_force: "day",
-  };
-  // if(sharesExisting != 0){
-  //   var orderObj = {
-  //     symbol: symbol,
-  //     qty: Math.abs(orderQuantity),
-  //     side: orderSide,
-  //     type: "limit",
-  //     extended_hours: true,
-  //     limit_price: orderSide=="buy"?sharePrice+diff:sharePrice-diff,
-  //     time_in_force: "day",
-  //   };
-  //}
   
+  var diff = Number(process.argv[5]?process.argv[5]:0)
+  var isNeg = diff < 0
+  diff = sharePrice * (1+Math.abs(diff))- sharePrice
+  diff = Math.round((Math.abs(diff) - Number.EPSILON) * 100) / 100
+  diff = isNeg?-1*diff:diff
+
+  sharePrice = orderSide=="buy"?sharePrice+diff:sharePrice-diff
+  sharePrice = Math.round((Math.abs(sharePrice) - Number.EPSILON) * 100) / 100
+  
+  var type = process.argv[5]?"limit":"market";
+  
+  if(type=="market"){
+    var orderObj = {
+      symbol: symbol,
+      qty: Math.abs(orderQuantity),
+      side: orderSide,
+      type: type,
+      extended_hours: false,
+     
+      time_in_force: "day",
+    };
+  }else{
+    var orderObj = {
+      symbol: symbol,
+      qty: Math.abs(orderQuantity),
+      side: orderSide,
+      type: type,
+      extended_hours: true,
+      limit_price: sharePrice ,
+      time_in_force: "day",
+    };
+  }
+  //console.log(orderObj)
   paca.createOrder(orderObj).then((order) => {
     console.log("Order :", order);
   });
@@ -85,9 +97,8 @@ module.exports = {
     });
   },
   SubmitOrder: function (symbol, weight, sharesExisting, callback) {
-    var orderSide = "";
    
-    paca.getBars("15Min", symbol, {
+    paca.getBars("1Min", symbol, {
         limit: 5,
       })
       .then((barset) => {
@@ -97,21 +108,22 @@ module.exports = {
 
         var ordersRaw = Math.round(weight / sharePrice);
         var shares = Math.abs(Math.round(ordersRaw - sharesExisting));
-
+ var orderSide = "";
         if (Number(ordersRaw) > Number(sharesExisting)) {
           orderSide = "buy";
         } else {
           orderSide = "sell";
         }
-        // if (
-        //   (ordersRaw > 0 && sharesExisting < 0) ||
-        //   (ordersRaw < 0 && sharesExisting > 0)
-        // ) {
-        //   shares = Math.abs(sharesExisting);
-        // }
+        if (
+          (ordersRaw > 0 && sharesExisting < 0) ||
+          (ordersRaw < 0 && sharesExisting > 0)
+        ) {
+          // handles switching short to long and vis versa since Alpaca doesn't allow directional change in single order.
+          // but not ideal
+          shares = Math.abs(sharesExisting);
+        }
        
-        order(//sharesExisting,
-          shares, orderSide, symbol,sharePrice);
+        order(shares, orderSide, symbol,sharePrice);
         
       });
   },

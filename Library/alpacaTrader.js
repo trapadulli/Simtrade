@@ -52,7 +52,7 @@ function alpacaTrader(positions) {
           portfolioSymbols.push(x.symbol);
           portfolioSharesDictionary[x.symbol] = x.qty;
         });
-
+        alpaca.cancelAllOrders().then((x) => {
         for (var i = 0; i < portfolioSymbols.length; i++) {
           (function (i) {
             setTimeout(function () {
@@ -88,6 +88,7 @@ function alpacaTrader(positions) {
             }, 500 * i);
           })(i);
         }
+      })
       });
     });
   });

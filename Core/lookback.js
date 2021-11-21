@@ -3,12 +3,10 @@
 const Order = require("../Library/Order");
 
 function lookback(day, file, method, trade, back) {
-  
   var printday = day;
   try {
     Order.GetCalendar(day, function (isTradingDay) {
       var back = 1;
-      console.log(isTradingDay)
       if (isTradingDay) {
         console.log("tradingDay: " + day);
         var d = new Date(day);

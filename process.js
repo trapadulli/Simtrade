@@ -12,87 +12,77 @@ const { BacktestRunner } = require("./Core/BacktestRunner");
 const { writecsvRowBacktest } = require("./Core/writecsvRowBacktest");
 const { SimulationBuilder } = require("./Core/SimulationBuilder");
 const { lookback } = require("./Core/lookback");
-const outputDirectory = __dirname + "/Output/"
-const testDir = __dirname + "/Output/"+process.argv[4]+"/"
+const outputDirectory = __dirname + "/Output/";
+const testDir = __dirname + "/Output/" + process.argv[4] + "/";
 //const modelPath = __dirname + "/Library/Models/"+process.argv[4]+".js"
-var fs = require('fs');
+var fs = require("fs");
 
-const output = "/Output/"
-const models = "/Library/Models/"
-const shortOutputDirectory =  output +process.argv[4]
-const shortModelDirectory =  models + process.argv[4]+".js"
-const outputPath = __dirname + shortOutputDirectory 
-var outputModel = outputPath+"/"+ process.argv[4]+".js"
-const modelPath = __dirname + shortModelDirectory
+const output = "/Output/";
+const models = "/Library/Models/";
+const shortOutputDirectory = output + process.argv[4];
+const shortModelDirectory = models + process.argv[4] + ".js";
+const outputPath = __dirname + shortOutputDirectory;
+var outputModel = outputPath + "/" + process.argv[4] + ".js";
+const modelPath = __dirname + shortModelDirectory;
 
-var fs = require('fs');
+var fs = require("fs");
 function getCurrentFilenames() {
   console.log("\nCurrent filenames:");
-  fs.readdirSync(__dirname).forEach(file => {
+  fs.readdirSync(__dirname).forEach((file) => {
     console.log(file);
   });
 }
 
+if (process.argv[2] && process.argv[3] && process.argv[4]) {
+  if (!fs.existsSync(outputPath) && fs.existsSync(modelPath)) {
+    fs.mkdirSync(outputPath);
+  }
+  if (!fs.existsSync(outputPath) && fs.existsSync(modelPath)) {
+    fs.mkdirSync(outputPath);
+  }
 
-if (process.argv[2]&&process.argv[3]&&process.argv[4]) {
-  if ((!fs.existsSync(outputPath))&&fs.existsSync(modelPath)){
-    fs.mkdirSync(outputPath);
-  }
-  if ((!fs.existsSync(outputPath))&&fs.existsSync(modelPath)){
-    fs.mkdirSync(outputPath);
-  }
-  
-   if ("trade" == process.argv[2]) {
-    
+  if ("trade" == process.argv[2]) {
     var input = Number(process.argv[3] != undefined ? process.argv[3] : 0);
     var day = new Date().toJSON().slice(0, 10);
     var d = new Date(day);
     d.setDate(d.getDate() - input);
     var day = d.toJSON().slice(0, 10);
-    var file =   "simulations/_trade";
+    var file = "simulations/_trade";
     Order.GetCalendar(day, function (isTradingDay) {
       if (isTradingDay) {
-        lookback(day,file,RunAlgo.Model,true, 1)
-        
-      }else{
-        console.log("not trading on "+day)
+        lookback(day, file, RunAlgo.Model, true, 1);
+      } else {
+        console.log("not trading on " + day);
       }
     });
-  }
-  else if ("sim" == process.argv[2]) {
-    var i = 1
-    outputModel = outputPath+ "/"+ process.argv[4]+"_"+ i++ +".js"
-    while(fs.existsSync(outputModel))
-    {
-      outputModel = outputPath+ "/"+ process.argv[4]+"_"+ i++ +".js"
-      
+  } else if ("sim" == process.argv[2]) {
+    if (process.argv[3] == 0) {
+      var i = 1;
+      outputModel = outputPath + "/" + process.argv[4] + "_" + i++ + ".js";
+      while (fs.existsSync(outputModel)) {
+        outputModel = outputPath + "/" + process.argv[4] + "_" + i++ + ".js";
+      }
+      fs.copyFileSync(modelPath, outputModel);
     }
-    fs.copyFileSync(modelPath, outputModel);
-    
     var input = Number(process.argv[3] != undefined ? process.argv[3] : 0);
-    SimulationBuilder( testDir+process.argv[4]+"_sim.csv",
+    SimulationBuilder(
+      testDir + process.argv[4] + "_sim.csv",
       input,
       15000,
       RunAlgo.Model,
       1
     );
-  } 
-  else if ("backtest" == process.argv[2]) {
+  } else if ("backtest" == process.argv[2]) {
     var input = Number(process.argv[3] != undefined ? process.argv[3] : 0);
     BacktestRunner(
       input,
       10000,
-      testDir+process.argv[4]+"_backtest.csv",
-      testDir+process.argv[4]+"_sim.csv",
+      testDir + process.argv[4] + "_backtest.csv",
+      testDir + process.argv[4] + "_sim.csv",
       ModelRunner.BacktestResults,
       writecsvRowBacktest
     );
-  } 
-  
-  else {
+  } else {
     console.log("no known call....");
   }
-  
 }
-
-

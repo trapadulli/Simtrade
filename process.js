@@ -76,7 +76,7 @@ if (process.argv[2] && process.argv[3] && process.argv[4]) {
     var input = Number(process.argv[3] != undefined ? process.argv[3] : 0);
     BacktestRunner(
       input,
-      10000,
+      15000,
       testDir + process.argv[4] + "_backtest.csv",
       testDir + process.argv[4] + "_sim.csv",
       ModelRunner.BacktestResults,

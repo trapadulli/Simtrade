@@ -56,14 +56,14 @@ if (process.argv[2] && process.argv[3] && process.argv[4]) {
       }
     });
   } else if ("sim" == process.argv[2]) {
-    if (process.argv[3] == 0) {
+    
       var i = 1;
       outputModel = outputPath + "/" + process.argv[4] + "_" + i++ + ".js";
       while (fs.existsSync(outputModel)) {
         outputModel = outputPath + "/" + process.argv[4] + "_" + i++ + ".js";
       }
       fs.copyFileSync(modelPath, outputModel);
-    }
+  
     var input = Number(process.argv[3] != undefined ? process.argv[3] : 0);
     SimulationBuilder(
       testDir + process.argv[4] + "_sim.csv",

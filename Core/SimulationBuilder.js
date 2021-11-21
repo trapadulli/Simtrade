@@ -3,17 +3,17 @@
 const { lookback } = require("../Core/lookback");
 
 function SimulationBuilder(file, indexAdder, incrementer, method, back) {
-  var year = 300;
+  var year = 2250;
   var daysback = indexAdder + year;
   console.log("_________"+file+"_____________");
   console.log("indexAdder: " + indexAdder);
-  for (var i = 0; i + indexAdder <= daysback; i++) {
+  for (var i = 0; i  <= indexAdder; i++) {
     (function (i) {
       setTimeout(
         function () {
-          console.log("____________| Daysback: " + (i + indexAdder));
+          console.log("____________| Daysback: " + (i ));
           var dateTime = new Date();
-          var howFar = dateTime.setDate(dateTime.getDate() - (i + indexAdder));
+          var howFar = dateTime.setDate(dateTime.getDate() - (i ));
           var day = new Date(howFar).toJSON().slice(0, 10);
 
           console.log(day);
@@ -25,7 +25,7 @@ function SimulationBuilder(file, indexAdder, incrementer, method, back) {
           }
           lookback(day, file, method, false, back);
         },
-        year == i ? 1 : (year-i) * incrementer
+        indexAdder == i ? 1 : (indexAdder-i) * incrementer
       );
     })(i);
   }

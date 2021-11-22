@@ -174,15 +174,14 @@ async function BacktestResults(date, file, callback) {
                 });
                 console.log(
                   colors.bold(
-                    "Daily: " +
-                      (returns * 100).toFixed(2) +
-                      "%, Beta: " +
-                      betaScore.toFixed(4) +
-                      ", longs:" +
-                      longs +
-                      ", shorts:" +
-                      shorts
-                  )
+                    "Daily: ") +
+                      ((returns * 100).toFixed(2)) +
+                      "%, "+ colors.bold("Beta: ") +
+                      (betaScore.toFixed(4)) +
+                      ", "+ colors.bold("Longs: ") +
+                      (longs) +
+                      ", "+colors.bold("Shorts: ") +
+                      (shorts)
                 );
 
                 callback(

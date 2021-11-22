@@ -93,12 +93,9 @@ function BacktestRunner(indexAdder, incrementer, path, file, method,writecsvRowB
                     console.log(colors.bold(key)+
                     ` : ${colors.dim(value)}`);
                 }
-                
                   console.log("")
                   console.log("")
                 });
-              } else {
-             //   console.log("Not Trading Today: " + backDate);
               }
             });
           } catch (ex){

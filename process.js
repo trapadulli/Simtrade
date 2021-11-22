@@ -55,8 +55,8 @@ if (process.argv[2] && process.argv[3] && process.argv[4]) {
         console.log("not trading on " + day);
       }
     });
-  } else if ("sim" == process.argv[2]) {
-    
+  } else if ("backtest" == process.argv[2]) {
+
       var i = 1;
       outputModel = outputPath + "/" + process.argv[4] + "_" + i++ + ".js";
       while (fs.existsSync(outputModel)) {
@@ -72,8 +72,7 @@ if (process.argv[2] && process.argv[3] && process.argv[4]) {
       RunAlgo.Model,
       1
     );
-  } else if ("backtest" == process.argv[2]) {
-    var input = Number(process.argv[3] != undefined ? process.argv[3] : 0);
+    setTimeout(function(){
     BacktestRunner(
       input,
       15000,
@@ -82,6 +81,8 @@ if (process.argv[2] && process.argv[3] && process.argv[4]) {
       ModelRunner.BacktestResults,
       writecsvRowBacktest
     );
+    }
+    ,10)
   } else {
     console.log("no known call....");
   }

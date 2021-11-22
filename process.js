@@ -57,16 +57,16 @@ if (process.argv[2] && process.argv[3] && process.argv[4]) {
     });
   } else if ("backtest" == process.argv[2]) {
 
-      var i = 1;
-      outputModel = outputPath + "/" + process.argv[4] + "_" + i++ + ".js";
+      var i = 0;
+      outputModel = outputPath + "/" + process.argv[4] + "_" + ++i + "_model.js";
       while (fs.existsSync(outputModel)) {
-        outputModel = outputPath + "/" + process.argv[4] + "_" + i++ + ".js";
+        outputModel = outputPath + "/" + process.argv[4] + "_" + ++i + "_model.js";
       }
       fs.copyFileSync(modelPath, outputModel);
-  
+    var sim = testDir + process.argv[4] +"_"+i+ "_sim.csv"
     var input = Number(process.argv[3] != undefined ? process.argv[3] : 0);
     SimulationBuilder(
-      testDir + process.argv[4] + "_sim.csv",
+      sim,
       input,
       15000,
       RunAlgo.Model,
@@ -76,8 +76,8 @@ if (process.argv[2] && process.argv[3] && process.argv[4]) {
     BacktestRunner(
       input,
       15000,
-      testDir + process.argv[4] + "_backtest.csv",
-      testDir + process.argv[4] + "_sim.csv",
+      testDir + process.argv[4]+"_"+i+ "_backtest.csv",
+      sim,
       ModelRunner.BacktestResults,
       writecsvRowBacktest
     );

@@ -91,7 +91,7 @@ function BacktestRunner(indexAdder, incrementer, path, file, method,writecsvRowB
                   for (const key in tradingStatement) {
                     var value = tradingStatement[key]
                     console.log(colors.bold(key)+
-                    ` : ${key=="TotalReturns"||key=="MaxDrawdown"?(Number(value.replace("%",""))>0?colors.green(value):colors.red(value)):
+                    ` : ${key=="TotalReturns"?(Number(value.replace("%",""))>0?colors.green(value):colors.red(value)):
                     value}`);
                 }
                 

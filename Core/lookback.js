@@ -14,7 +14,7 @@ function lookback(day, file, method, trade, back) {
         day = d.toJSON().slice(0, 10);
         Order.GetCalendar(day, function (isTradingDay) {
           if (isTradingDay) {
-            console.log("in 1");
+            console.log("analysis 1 dayback");
             method(printday, day, file, trade, function () {
               console.log(" done building daily trade positions");
             });
@@ -25,7 +25,7 @@ function lookback(day, file, method, trade, back) {
             day = d.toJSON().slice(0, 10);
             Order.GetCalendar(day, function (isTradingDay) {
               if (isTradingDay) {
-                console.log("in 2");
+                console.log("analysis 2 daysback");
                 method(printday, day, file, trade, function () {
                   console.log(" done building daily trade positions");
                 });
@@ -35,7 +35,7 @@ function lookback(day, file, method, trade, back) {
                 day = d.toJSON().slice(0, 10);
                 Order.GetCalendar(day, function (isTradingDay) {
                   if (isTradingDay) {
-                    console.log("in 3");
+                    console.log("analysis 3 daysback");
                     method(printday, day, file, trade, function () {
                       console.log(" done building daily trade positions");
                     });
@@ -45,7 +45,7 @@ function lookback(day, file, method, trade, back) {
                     day = d.toJSON().slice(0, 10);
                     Order.GetCalendar(day, function (isTradingDay) {
                       if (isTradingDay) {
-                        console.log("in 4");
+                        console.log("analysis 4 daysback");
                         method(printday, day, file, trade, function () {
                           console.log(" done building daily trade positions");
                         });
@@ -55,7 +55,7 @@ function lookback(day, file, method, trade, back) {
                         day = d.toJSON().slice(0, 10);
                         Order.GetCalendar(day, function (isTradingDay) {
                           if (isTradingDay) {
-                            console.log("in 5");
+                            console.log("analysis 5 daysback");
                             method(printday, day, file, trade, function () {
                               console.log(" done building daily trade positions");
                             });
@@ -65,12 +65,12 @@ function lookback(day, file, method, trade, back) {
                             day = d.toJSON().slice(0, 10);
                             Order.GetCalendar(day, function (isTradingDay) {
                               if (isTradingDay) {
-                                console.log("in 6");
+                                console.log("analysis 6 daysback");
                                 method(printday, day, file, trade, function () {
                                   console.log(" done building daily trade positions");
                                 });
                               } else {
-                                console.log("in 7 ***********************");
+                                console.log("analysis 7 daysback ***********************");
 
                               }
                             });

@@ -6,7 +6,7 @@ function SimulationBuilder(file, indexAdder, incrementer, method, back) {
   var year = 2250;
   var daysback = indexAdder + year;
   console.log("_________"+file+"_____________");
-  console.log("indexAdder: " + indexAdder);
+//  console.log("indexAdder: " + indexAdder);
   for (var i = 0; i  <= indexAdder; i++) {
     (function (i) {
       setTimeout(
@@ -16,10 +16,10 @@ function SimulationBuilder(file, indexAdder, incrementer, method, back) {
           var howFar = dateTime.setDate(dateTime.getDate() - (i ));
           var day = new Date(howFar).toJSON().slice(0, 10);
 
-          console.log(day);
+         // console.log(day);
           if (i > year) {
             //dont run longer than a year for performance data leaks
-            console.log("indexer: " + (i + indexAdder));
+          //  console.log("indexer: " + (i + indexAdder));
             console.log("date: " + day);
             throw "done";
           }

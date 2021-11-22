@@ -1,5 +1,5 @@
 "use strict"
-
+const colors = require("colors/safe");
 const Order = require("../Library/Order");
 
 function BacktestRunner(indexAdder, incrementer, path, file, method,writecsvRowBacktest) {
@@ -20,7 +20,7 @@ function BacktestRunner(indexAdder, incrementer, path, file, method,writecsvRowB
     (function (i) {
       setTimeout(
         function () {
-          console.log("____________| Daysback: " + i);
+        //  console.log("____________| Daysback: " + i);
           var dateTime = new Date();
           var howFar = dateTime.setDate(dateTime.getDate() - i);
           var backDate = new Date(howFar).toJSON().slice(0, 10);
@@ -87,11 +87,19 @@ function BacktestRunner(indexAdder, incrementer, path, file, method,writecsvRowB
                     SqRtSortino: sortino,
                     GainToPain: gainToPain,
                   };
-                  console.log(tradingStatement);
+
+                  for (const key in tradingStatement) {
+                    var value = tradingStatement[key]
+                    console.log(colors.bold(key)+
+                    ` : ${key=="TotalReturns"||key=="MaxDrawdown"?(Number(value.replace("%",""))>0?colors.green(value):colors.red(value)):
+                    value}`);
+                }
+                
+                  console.log("")
+                  console.log("")
                 });
-                console.log("Is Trading Today: " + backDate);
               } else {
-                console.log("Not Trading Today: " + backDate);
+             //   console.log("Not Trading Today: " + backDate);
               }
             });
           } catch (ex){

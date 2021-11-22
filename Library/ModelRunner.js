@@ -84,9 +84,15 @@ async function BacktestResults(date, file, callback) {
                 var longs = 0;
                 var shorts = 0;
                 var positions = "";
+                console.log("")
+                console.log("")
+                console.log("")
+                console.log(
+                  colors.bold("Backtest date: "+date))
                 dailyPicks.forEach(function (ea) {
                   var positionReturn = 0;
                   var positionBeta = 0;
+                  
                   firstDayData.forEach((element) => {
                     try {
                       if (ea.symbol == Object.values(element.RowKey)[1]) {
@@ -128,6 +134,7 @@ async function BacktestResults(date, file, callback) {
                         weight = weight.toFixed(3)
                         var sum = Number(Number(weight) * Number(diff)); //.toFixed(4)
                         var percent = (sum * 100).toFixed(2);
+                        
                         console.log(
                           space +
                             colors.yellow(sym) +
@@ -165,7 +172,6 @@ async function BacktestResults(date, file, callback) {
                   betaScore += positionBeta;
                   returns += positionReturn;
                 });
-                console.log(date);
                 console.log(
                   colors.bold(
                     "Daily: " +

@@ -72,7 +72,7 @@ if (process.argv[2] && process.argv[3] && process.argv[4]) {
       RunAlgo.Model,
       1
     );
-    setTimeout(function(){
+   // setTimeout(function(){
     BacktestRunner(
       input,
       15000,
@@ -81,8 +81,8 @@ if (process.argv[2] && process.argv[3] && process.argv[4]) {
       ModelRunner.BacktestResults,
       writecsvRowBacktest
     );
-    }
-    ,10)
+  //  }
+  //  ,200)
   } else {
     console.log("no known call....");
   }

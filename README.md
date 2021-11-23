@@ -17,5 +17,6 @@
 #
 ### For Research and Development
 ##### Running a backtest first time will copy version of ./Library/Models/MyAlgo.js
-##### and create ./Output/MyAlgo/MyAlgo_1.js and ./Output/MyAlgo/MyAlgo_1_sim.csv and ./Output/MyAlgo/MyAlgo_1_backtest.csv
-##### iterating number on each run
+##### and create ./Output/MyAlgo/MyAlgo_1.js and ./Output/MyAlgo/MyAlgo_1_sim.csv
+##### and ./Output/MyAlgo/MyAlgo_1_backtest.csv
+##### iterating the number on each run

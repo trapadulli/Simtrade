@@ -20,7 +20,6 @@ function BacktestRunner(indexAdder, incrementer, path, file, method,writecsvRowB
     (function (i) {
       setTimeout(
         function () {
-        //  console.log("____________| Daysback: " + i);
           var dateTime = new Date();
           var howFar = dateTime.setDate(dateTime.getDate() - i);
           var backDate = new Date(howFar).toJSON().slice(0, 10);

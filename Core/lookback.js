@@ -86,7 +86,7 @@ function lookback(day, file, method, trade, back) {
             });
           }
         });
-
+        
       } else {
         console.log("not trading today: " + day);
       }
@@ -94,5 +94,6 @@ function lookback(day, file, method, trade, back) {
   } catch {
     console.log("runsector no data");
   }
+ 
 }
 exports.lookback = lookback;

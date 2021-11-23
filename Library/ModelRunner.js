@@ -84,9 +84,7 @@ async function BacktestResults(date, file, callback) {
                 var longs = 0;
                 var shorts = 0;
                 var positions = "";
-                console.log("")
-                console.log("")
-                console.log("")
+             
                 console.log(
                   colors.bold("Backtest date: "+date))
                 dailyPicks.forEach(function (ea) {

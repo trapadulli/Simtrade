@@ -1,6 +1,7 @@
 /////////////////////////////////////////////////// DEPENDENCIES //////////////////////////////////////////////////////////////
 "use strict";
 const Order = require("../Library/Order");
+const colors = require("colors/safe");
 
 function lookbacker(day, callback) {
   var date = day
@@ -13,7 +14,7 @@ function lookbacker(day, callback) {
         day = d.toJSON().slice(0, 10);
         Order.GetCalendar(day, function (isTradingDay) {
           if (isTradingDay) {
-            console.log("adjusted 1 dayback from "+date);
+            //console.log(colors.italic("adjusted 1 dayback"));
             callback(day)
 
           } else {
@@ -22,7 +23,7 @@ function lookbacker(day, callback) {
             day = d.toJSON().slice(0, 10);
             Order.GetCalendar(day, function (isTradingDay) {
               if (isTradingDay) {
-                console.log("adjusted 2 daysback from "+date);
+                //console.log(colors.italic("adjusted 2 daysback"));
                 callback(day)
               } else {
                 d = new Date(day);
@@ -30,7 +31,7 @@ function lookbacker(day, callback) {
                 day = d.toJSON().slice(0, 10);
                 Order.GetCalendar(day, function (isTradingDay) {
                   if (isTradingDay) {
-                    console.log("adjusted 3 daysback from "+date);
+                   // console.log(colors.italic("adjusted 3 daysback"));
                     callback(day)
                   } else {
                     d = new Date(day);
@@ -38,7 +39,7 @@ function lookbacker(day, callback) {
                     day = d.toJSON().slice(0, 10);
                     Order.GetCalendar(day, function (isTradingDay) {
                       if (isTradingDay) {
-                        console.log("adjusted 4 daysback from "+date);
+                        //console.log(colors.italic("adjusted 4 daysback"));
                         callback(day)
                       } else {
                         d = new Date(day);
@@ -46,7 +47,7 @@ function lookbacker(day, callback) {
                         day = d.toJSON().slice(0, 10);
                         Order.GetCalendar(day, function (isTradingDay) {
                           if (isTradingDay) {
-                            console.log("adjusted 5 daysback from "+date);
+                           // console.log(colors.italic("adjusted 5 daysback"));
                             callback(day)
                           } else {
                             d = new Date(day);
@@ -54,10 +55,10 @@ function lookbacker(day, callback) {
                             day = d.toJSON().slice(0, 10);
                             Order.GetCalendar(day, function (isTradingDay) {
                               if (isTradingDay) {
-                                console.log("adjusted 6 daysback from "+date);
+                               // console.log(colors.italic("adjusted 6 daysback"));
                                 callback(day)
                               } else {
-                                console.log("adjusted 7 daysback from "+date+"**************")
+                                console.log(colors.italic("adjusted 7 daysback **************"))
 
                               }
                             });
@@ -74,7 +75,9 @@ function lookbacker(day, callback) {
           }
           
         });
-        
+        console.log("")
+        console.log("")
+        console.log("")
       } else {
         console.log("not trading today: " + day);
       }

@@ -21,8 +21,6 @@ function SimulationBuilder(file, indexAdder, incrementer, method, back) {
 
           // console.log(day);
           if (i > year) {
-            //dont run longer than a year for performance data leaks
-            //  console.log("indexer: " + (i + indexAdder));
             console.log("date: " + day);
             throw "done";
           }

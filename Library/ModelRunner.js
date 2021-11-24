@@ -85,8 +85,7 @@ async function BacktestResults(date, file, callback) {
                 var shorts = 0;
                 var positions = "";
              
-                console.log(
-                  colors.bold("Backtest date: "+date))
+              
                 dailyPicks.forEach(function (ea) {
                   var positionReturn = 0;
                   var positionBeta = 0;
@@ -181,7 +180,8 @@ async function BacktestResults(date, file, callback) {
                       ", "+colors.bold("Shorts: ") +
                       (shorts)
                 );
-
+                console.log(
+                  colors.bold("Backtest date: ")+date)
                 callback(
                   (returns * 100).toFixed(4),
                   betaScore,

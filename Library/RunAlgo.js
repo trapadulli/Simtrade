@@ -5,7 +5,6 @@
  * like:
     node process.js <function> <days> <fileName>
     node process.js trade 0 MyFile
-    node process.js sim 0 MyFile
     node process.js backtest 300 MyFile
  */
 const model = require("./Models/"+process.argv[4]);

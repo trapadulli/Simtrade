@@ -68,21 +68,21 @@ if (process.argv[2] && process.argv[3] && process.argv[4]) {
     SimulationBuilder(
       sim,
       input,
-      15000,
+      20000,
       RunAlgo.Model,
       1
     );
-   // setTimeout(function(){
+    setTimeout(function(){
     BacktestRunner(
       input,
-      15000,
+      20000,
       testDir + process.argv[4]+"_"+i+ "_backtest.csv",
       sim,
       ModelRunner.BacktestResults,
       writecsvRowBacktest
     );
-  //  }
-  //  ,200)
+    }
+    ,5000)
   } else {
     console.log("no known call....");
   }

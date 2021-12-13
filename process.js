@@ -82,7 +82,7 @@ if (process.argv[2] && process.argv[3] && process.argv[4]) {
       writecsvRowBacktest
     );
     }
-    ,5000)
+    ,20000)
   } else {
     console.log("no known call....");
   }

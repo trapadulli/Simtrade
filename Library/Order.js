@@ -40,9 +40,10 @@ function order(orderQuantity, orderSide, symbol,sharePrice) {
       time_in_force: "day",
     };
   }else{
+    var multiple = process.argv[6]??1
     var orderObj = {
       symbol: symbol,
-      qty: Math.abs(orderQuantity),//leveraged for premarket since its likely most wont fill
+      qty: Math.abs(multiple*orderQuantity),//leveraged for premarket since its likely most wont fill
       side: orderSide,
       type: type,
       extended_hours: true,

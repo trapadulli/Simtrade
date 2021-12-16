@@ -42,7 +42,7 @@ function order(orderQuantity, orderSide, symbol,sharePrice) {
   }else{
     var orderObj = {
       symbol: symbol,
-      qty: Math.abs(4*orderQuantity),//leveraged for premarket since its likely most wont fill
+      qty: Math.abs(orderQuantity),//leveraged for premarket since its likely most wont fill
       side: orderSide,
       type: type,
       extended_hours: true,

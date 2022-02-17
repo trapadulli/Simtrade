@@ -62,9 +62,10 @@ if (process.argv[2] && process.argv[3] && process.argv[4]) {
     var d = new Date(day);
     d.setDate(d.getDate() - input);
     var day = d.toJSON().slice(0, 10);
-    var file = "simulations/_trade";
+    var file = "_trade.txt";
     Order.GetCalendar(day, function (isTradingDay) {
       if (isTradingDay) {
+
         lookback(day, file, RunAlgo.Model, false, 1);
       } else {
         console.log("not trading on " + day);

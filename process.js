@@ -55,7 +55,23 @@ if (process.argv[2] && process.argv[3] && process.argv[4]) {
         console.log("not trading on " + day);
       }
     });
-  } else if ("backtest" == process.argv[2]) {
+  } 
+  if ("prep" == process.argv[2]) {
+    var input = Number(process.argv[3] != undefined ? process.argv[3] : 0);
+    var day = new Date().toJSON().slice(0, 10);
+    var d = new Date(day);
+    d.setDate(d.getDate() - input);
+    var day = d.toJSON().slice(0, 10);
+    var file = "simulations/_trade";
+    Order.GetCalendar(day, function (isTradingDay) {
+      if (isTradingDay) {
+        lookback(day, file, RunAlgo.Model, false, 1);
+      } else {
+        console.log("not trading on " + day);
+      }
+    });
+  } 
+  else if ("backtest" == process.argv[2]) {
 
       var i = 0;
       outputModel = outputPath + "/" + process.argv[4] + "_" + ++i + "_model.js";

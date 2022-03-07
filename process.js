@@ -57,7 +57,7 @@ if (process.argv[2] && process.argv[3] && process.argv[4]) {
       }
     });
   } 
-  if ("prep" == process.argv[2]) {
+  else if ("prep" == process.argv[2]) {
     var input = Number(process.argv[3] != undefined ? process.argv[3] : 0);
     var day = new Date().toJSON().slice(0, 10);
     var d = new Date(day);

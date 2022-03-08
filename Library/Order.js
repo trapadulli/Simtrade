@@ -65,10 +65,12 @@ function IsTradingDay(tradingDay, callback) {
       "&end=" +
       tradingDay; 
     var xhttp = new XMLHttpRequest();
-
+   
     xhttp.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 200) {
         resolve(this.responseText);
+      }else{
+        console.log(this.responseText)
       }
     };
     xhttp.open("GET", url, false);
@@ -77,6 +79,7 @@ function IsTradingDay(tradingDay, callback) {
     xhttp.send();
   });
   get.then(function (json) {
+   
     callback(JSON.parse(json)[0].date == tradingDay);
   });
 }
@@ -84,6 +87,7 @@ function IsTradingDay(tradingDay, callback) {
 
 module.exports = {
   GetCalendar: function (tradingDay, callback) {
+   
     IsTradingDay(tradingDay, callback);
   },
   CancelAllOrders: function () {
